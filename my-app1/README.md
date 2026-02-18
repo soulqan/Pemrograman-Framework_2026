@@ -226,3 +226,70 @@ export default function App({ Component, pageProps }: AppProps) {
  └── AppShell
     ├── Navbar (tetap)
     └── Children (dinamis)
+
+2. Modifikasi index.tsx pada Appshell
+
+```tsx
+import Navbar from "../navbar";
+
+type AppShellProps = {
+    children: React.ReactNode;
+}
+
+const AppShell = (props: AppShellProps) => {
+    const { children } = props;
+    return (
+        <main>
+            <Navbar />
+            {children}
+        </main>
+    );
+};
+
+export default AppShell;
+
+```
+
+3. Implementasi Layout di _app.tsx dan tambahkan footer
+
+```tsx
+import '@/styles/globals.css'
+import Navbar from '@/components/layouts/navbar'
+import type { AppProps } from 'next/app'
+import AppShell from '@/components/layouts/Appshell'
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+      <AppShell>
+        <Component {...pageProps} />
+        <div>
+          footer
+        </div>
+      </AppShell>
+      
+  );
+}
+```
+
+4. Uji Coba 
+
+<img src="img/P2_11.png" alt="Demo Photo Filter" width="600"><br><br>
+
+**Tugas Praktikum**
+
+**Tugas 1 – Routing**
+1. Buat halaman:
+    - /profile
+    - /profile/edit
+2. Pastikan routing berjalan tanpa error
+<br>
+
+**Tugas 2 – Dynamic Routing**
+    1. Buat routing:
+    2. /blog/[slug]
+    3. Tampilkan nilai slug di halaman
+    <br>
+
+**Tugas 3 – Layout**
+1. Tambahkan Footer pada AppShell
+2. Footer tampil di semua halaman
