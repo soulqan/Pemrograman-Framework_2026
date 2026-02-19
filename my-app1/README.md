@@ -281,15 +281,50 @@ export default function App({ Component, pageProps }: AppProps) {
 1. Buat halaman:
     - /profile
     - /profile/edit
+
+<img src="img/P2_12.png" alt="Demo Photo Filter" width="600">
+
 2. Pastikan routing berjalan tanpa error
+
+<img src="img/P2_13.png" alt="Demo Photo Filter" width="600">
+
+<img src="img/P2_14.png" alt="Demo Photo Filter" width="600">
 <br>
 
 **Tugas 2 – Dynamic Routing**
-    1. Buat routing:
-    2. /blog/[slug]
-    3. Tampilkan nilai slug di halaman
+1. Buat routing:
+2. /blog/[slug]
+
+<img src="img/P2_15.png" alt="Demo Photo Filter" width="600">
+
+3. Tampilkan nilai slug di halaman
+
+<img src="img/P2_16.png" alt="Demo Photo Filter" width="600">
     <br>
 
 **Tugas 3 – Layout**
 1. Tambahkan Footer pada AppShell
+
+<img src="img/P2_17.png" alt="Demo Photo Filter" width="600">
+
 2. Footer tampil di semua halaman
+
+Setelah di Uji coba, semua page mempunyai footer.
+
+**F. Pertanyaan Refleksi**
+
+1. Apa perbedaan routing berbasis file dan routing manual?
+
+Jawaban: Perbedaan routing berbasis file dan routing manual (di Next.js):
+
+- Routing berbasis file otomatis dibuat dari struktur folder di pages atau app.
+
+- Routing manual seperti di React biasa harus mengatur route sendiri dengan konfigurasi (misalnya pakai React Router).
+
+2. Mengapa dynamic routing penting dalam aplikasi web?
+
+Jawaban:Karena memungkinkan membuat halaman dinamis seperti /produk/[id] tanpa membuat file untuk setiap produk.
+
+3. Apa keuntungan menggunakan layout global dibanding memanggil komponen satu per satu?
+
+Jawaban: Layout global membuat header, footer, atau navbar cukup dibuat sekali dan otomatis digunakan di semua halaman sehingga lebih rapi dan efisien.

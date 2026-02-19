@@ -7,9 +7,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <AppShell>
         <Component {...pageProps} />
-        <div>
-          footer
-        </div>
       </AppShell>
       
   );
