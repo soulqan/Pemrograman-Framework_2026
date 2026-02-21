@@ -28,7 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/profile/edit"  ],
+  ],
   "exclude": [
     "node_modules"
   ]

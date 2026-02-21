@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
+const inter = Inter({ subsets: ['latin'] })
 
 // export default function Home() {
 //   return (
@@ -111,29 +112,20 @@ import styles from '@/styles/Home.module.css'
 //     </>
 //   )
 // }
- // <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-    //   <h1>Praktikum Next.js Pages Router</h1> 
-    //   <p>Mahasiswa D4 Pengembangan Web</p> 
-      
-    //   <nav style={{ marginTop: '20px' }}>
-    //     <Link href="/about" style={{ color: 'blue', textDecoration: 'underline' }}>
-    //       Ke Halaman About
-    //     </Link>
-    //   </nav>
-    // </div>
 
 import Link from 'next/link';
 
-
-
-
-const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
-  
-    <div>
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Praktikum Next.js Pages Router</h1> 
-      <p>Mahasiswa D4 Pengembangan Web</p>
+      <p>Mahasiswa D4 Pengembangan Web</p> 
+      
+      <nav style={{ marginTop: '20px' }}>
+        <Link href="/about" style={{ color: 'blue', textDecoration: 'underline' }}>
+          Ke Halaman About
+        </Link>
+      </nav>
     </div>
   );
 }
