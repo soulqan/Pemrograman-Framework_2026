@@ -1,23 +1,25 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const halamanLogin = () => {
-    const {push} = useRouter();
+const HalamanLogin = () => {
+    const { push } = useRouter();
+
     const handlerLogin = () => {
-        push("/produk");
-    }
 
-    return(
+        push({
+            pathname: '/produk',
+            query: { status: 'success' },
+        });
+    };
+
+    return (
         <div>
-
             <h1>Halaman Login</h1>
-            {/* <button onClick={handlerLogin}>Login</button>
-            <button onClick={() => push('/produk')}>Login</button> <br /> */}
-            <button onClick={() => handlerLogin()}>Login</button> <br />
-            <Link href="/auth/register">Ke Halaman Register </Link>
-
+            <button onClick={handlerLogin}>Login</button>
+            <br /><br />
+            <Link href="/auth/register">Ke Halaman Register</Link>
         </div>
     );
 };
 
-export default halamanLogin;
+export default HalamanLogin;
