@@ -5,6 +5,7 @@ import DetailProduk from "../../views/DetailProduct";
 import { ProductType } from "@/types/Product.type";
 
 const HalamanProduk = ({product}:{product: ProductType}) => {
+  // const HalamanProduk = () => {
     // const {query} = useRouter();
     // const {data, error,isLoading} = useSWR(`/api/produk/${query.produk}`, fetcher);
     // return(
