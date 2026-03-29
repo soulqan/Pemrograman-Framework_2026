@@ -1,19 +1,37 @@
 import syles from './navbar.module.css';
 import { signIn, signOut, useSession } from "next-auth/react";
-const Navbar = () =>{
-    const {data} = useSession();
-    return(
-        <div className={syles.navbar}>
-            <div className="big">
-                Navbar Component
-                </div>
-                {data ? (
-                    <button onClick={() => signOut()}>Sign Out</button>
-                ):(
-                    <button onClick={() => signIn()}>Sign In</button>
-                )}  
-        </div>
-    );
+const Navbar = () => {
+    const { data }: any = useSession();
+    return (
+  <div className={syles.navbar}>
+    <div className={syles.navbar__brand}>
+      MyApp
+    </div>
+
+    <div className={syles.navbar__right}>
+      {data ? (
+        <>
+          <div className={syles.navbar__user}>
+            Welcome, {data.user?.fullname}
+          </div>
+          <button
+            className={`${syles.navbar__button} ${syles["navbar__button--danger"]}`}
+            onClick={() => signOut()}
+          >
+            Sign Out
+          </button>
+        </>
+      ) : (
+        <button
+          className={`${syles.navbar__button} ${syles["navbar__button--primary"]}`}
+          onClick={() => signIn()}
+        >
+          Sign In
+        </button>
+      )}
+    </div>
+  </div>
+);
 };
 
 export default Navbar;
