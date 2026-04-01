@@ -1,17 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import withAuth from "./Middleware/withAuth";
 
-export function middleware(request: NextRequest) {
-    const isLogin = false;
+const protectedPaths: string[] = ["/profile", "/produk", "/about"];
 
-    if (isLogin) {
-        return NextResponse.next();
-    } else{
-        // return NextResponse.redirect(new URL("/api/auth/signin", request.url));
-        return NextResponse.redirect(new URL("/", request.url));
-    }
-    // return NextResponse.redirect(new URL("/", request.url));
-//   return NextResponse.next();
+export default function middleware(request: NextRequest) {
+  const simpleMiddleware = (_req: NextRequest) => NextResponse.next();
+  return withAuth(simpleMiddleware, protectedPaths)(request, {} as any);
 }
 
 export const config = {
