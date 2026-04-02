@@ -8,7 +8,7 @@ type Data = {
 
 export default async function handler(
     req: NextApiRequest, 
-    res: NextApiResponse
+    res: NextApiResponse<Data>
 ) {
     if(req.method === "POST"){
         await signUp(req.body, (result: {status: string, message: string}) => {
@@ -22,4 +22,5 @@ export default async function handler(
     else{
         res.status(405).json({name: "Method Not Allowed", alamat: ""});
     }
+    
 }
