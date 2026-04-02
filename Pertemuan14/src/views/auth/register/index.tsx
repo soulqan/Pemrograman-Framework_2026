@@ -9,14 +9,30 @@ const TampilanRegister = () => {
     const [error, setError] = useState("");
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        setError("");
-        setIsLoading(true);
         event.preventDefault();
         const form = event.currentTarget;
         const formData = new FormData(event.currentTarget);
-        const email = formData.get("email") as string;
-        const fullname = formData.get("fullname") as string;
+        const email = (formData.get("email") as string)?.trim();
+        const fullname = (formData.get("fullname") as string)?.trim();
         const password = formData.get("password") as string;
+
+        if (!email) {
+            setError("Email wajib diisi");
+            return;
+        }
+        
+        if (!password || password.length < 6) {
+            setError("Password minimal 6 karakter");
+            return;
+        }
+        
+        if (!fullname) {
+            setError("Nama lengkap wajib diisi");
+            return;
+        }
+
+        setError("");
+        setIsLoading(true);
 
         const response = await fetch("/api/register", {
             method: "POST",
@@ -27,15 +43,18 @@ const TampilanRegister = () => {
         });
         
 
-        if (response.status === 200) {
+        if (response.ok) {
             form.reset();
             setIsLoading(false);
             push("/auth/login");
         } else {
             setIsLoading(false);
-            setError(
-                response.status === 400 ? "Email already exists" : "An error occurred",
-            );
+            try {
+                const data = await response.json();
+                setError(data.name || "Terjadi kesalahan");
+            } catch {
+                setError("Terjadi kesalahan");
+            }
         }
     };
 
