@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import withAuth from "./Middleware/withAuth";
 
-const protectedPaths: string[] = ["/profile", "/produk", "/about"];
+const protectedPaths: string[] = ["/profile", "/produk", "/about", "/admin"];
 
 export default function middleware(request: NextRequest) {
   const simpleMiddleware = (_req: NextRequest) => NextResponse.next();
@@ -10,5 +10,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/produk", "/about", "/profile"],
+    matcher: ["/produk", "/about", "/profile", "/admin"],
 }

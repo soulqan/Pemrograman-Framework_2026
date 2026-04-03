@@ -5,6 +5,7 @@ const HalamanProfile = () => {
         <div>
             <h1>Halaman Profile</h1>
             <h1>Welcome, {data?.user?.fullname}</h1>
+            <h1>Your Role, {data?.user?.role}</h1>
         </div>
     )
 }
