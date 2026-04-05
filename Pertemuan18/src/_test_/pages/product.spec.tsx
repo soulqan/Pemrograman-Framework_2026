@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { describe, it, expect, jest } from "@jest/globals"
-import TampilanProduk from "@/pages/produk"
+import { ProdukPage } from "@/pages/produk"
 
 jest.mock("next/router", () => ({
     __esModule: true, 
@@ -20,7 +20,7 @@ jest.mock("next/router", () => ({
 
 describe("Daftar Produk", () => {
     it("renders product page correctly", () => {
-        const page = render(<TampilanProduk />)
+        const page = render(<ProdukPage products={[]} />)
         expect(screen.getByTestId("title").textContent).toBe("Daftar Produk")
         expect(page).toMatchSnapshot()
     })
