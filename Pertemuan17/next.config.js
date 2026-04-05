@@ -11,6 +11,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'down-id.img.susercontent.com',
+        port: '',
+        pathname: '/**', 
+      },
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+        port: '',
+        pathname: '/**', 
+      },
     ],
   },
 }
