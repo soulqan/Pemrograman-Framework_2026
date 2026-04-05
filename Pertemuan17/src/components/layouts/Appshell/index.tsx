@@ -7,7 +7,7 @@ type AppShellProps = {
     children: React.ReactNode;
 }
 
-const Roboto = Roboto({
+const roboto = Roboto({
     subsets: ['latin'],
     weight: ['400', '500', '700'],
 });
@@ -16,7 +16,7 @@ const AppShell = (props: AppShellProps) => {
     const { children } = props;
     const {pathname}= useRouter();
     return (
-        <main className={Roboto.className}>
+        <main className={roboto.className}>
             {!disableNavbar.includes(pathname) && <Navbar />}
             {children}
         </main>

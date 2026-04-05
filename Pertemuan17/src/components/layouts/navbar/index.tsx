@@ -1,4 +1,5 @@
 import syles from './navbar.module.css';
+import Script from 'next/dist/client/script'
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from 'next/image';
 
@@ -7,7 +8,9 @@ const Navbar = () => {
     return (
   <div className={syles.navbar}>
     <div className={syles.navbar__brand}>
-      MyApp
+      <Script id="title-script" strategy='lazyOnload'>
+        {`document.getElementById('title').innerHTML = 'MyApp';`}
+      </Script>
     </div>
 
     <div className={syles.navbar__right}>
