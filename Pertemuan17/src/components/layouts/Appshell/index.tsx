@@ -1,6 +1,10 @@
 import { useRouter } from "next/router";
-import Navbar from "../navbar";
+import dynamic from 'next/dynamic';
 import { Roboto } from "next/font/google";
+
+const Navbar = dynamic(() => import("../navbar"), {
+    ssr: false,
+});
 
 const disableNavbar =['/auth/login', '/auth/register', '/404']
 type AppShellProps = {
@@ -24,4 +28,3 @@ const AppShell = (props: AppShellProps) => {
 };
 
 export default AppShell;
- 

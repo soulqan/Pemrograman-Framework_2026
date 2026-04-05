@@ -26,6 +26,8 @@ const TampilanProduk = ({ products }: { products: ProductType[] }) => {
                                     alt={product.nama}
                                     width={200}
                                     height={200}
+                                    quality={75}
+                                    priority={false}
                                 />
                             {/* <img src={product.image} alt={product.nama} width={200} /> */}
                         </div>
