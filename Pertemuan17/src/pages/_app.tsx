@@ -10,6 +10,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
   
   return (
     <>
+      {/* Google Analytics - Uncomment when GA_ID is configured */}
       {/* {gaId && (
         <>
           <Script
