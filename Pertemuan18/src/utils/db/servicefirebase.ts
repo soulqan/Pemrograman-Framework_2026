@@ -24,10 +24,46 @@ export async function retrieveProducts(collectionName: string) {
   return data;
 }
 
+export async function retrieveProductsByCategory(collectionName: string, category: string) {
+  const q = query(collection(db, collectionName), where("category", "==", category));
+  const snapshot = await getDocs(q);
+  const data = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return data;
+}
+
 export async function retrieveDataByID(collectionName: string, id: string) {
   const snapshot = await getDoc(doc(db, collectionName, id));
   const data = snapshot.data();
   return data;
+}
+
+export async function addProduct(productData: {
+  nama: string;
+  price: number;
+  image: string;
+  size: string;
+  category: string;
+  description?: string;
+}) {
+  try {
+    const docRef = await addDoc(collection(db, "products"), {
+      ...productData,
+      createdAt: new Date(),
+    });
+    return {
+      status: true,
+      message: "Product added successfully",
+      id: docRef.id,
+    };
+  } catch (error: any) {
+    return {
+      status: false,
+      message: error.message,
+    };
+  }
 }
 
 export async function signIn(
